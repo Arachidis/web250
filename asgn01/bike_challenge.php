@@ -22,8 +22,8 @@ class Bicycle {
 
 //********************************************/
 
-$bike1 = new Bicycle;
-$bike2 = new Bicycle;
+$bike1 = new Bicycle();
+$bike2 = new Bicycle();
 
 //Bike 1
 $bike1->brand = 'Giant';
@@ -60,3 +60,5 @@ echo('</pre><br>');
 //Method results
 echo('Bike name: '. $bike2->name() .'<br>');
 echo('Bike weight in lbs: '. $bike2->weight_lbs() .'<br><hr>');
+
+//EOF
