@@ -40,12 +40,12 @@ $bike2->description = 'This is also a great bike';
 $bike2->set_weight_lbs(40.35);
 
 //Display class vars
-echo('Class variables: <br>');
+echo('Class properties: <br>');
 echo('<pre>');
 print_r(get_class_vars('Bicycle'));
 echo('</pre><br><hr>');
 //Display bike1 vars
-echo('Bike1 variables: <br>');
+echo('Bike1 properties: <br>');
 echo('<pre>');
 print_r(get_object_vars($bike1));
 echo('</pre><br>');
@@ -53,7 +53,7 @@ echo('</pre><br>');
 echo('Bike name: '. $bike1->name() .'<br>');
 echo('Bike weight in lbs: '. $bike1->weight_lbs() .'<br><hr>');
 //Display bike2 vars
-echo('Bike2 variables: <br>');
+echo('Bike2 properties: <br>');
 echo('<pre>');
 print_r(get_object_vars($bike2));
 echo('</pre><br>');
