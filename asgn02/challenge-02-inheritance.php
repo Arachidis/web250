@@ -1,7 +1,6 @@
 <?php
 
 class Dog {
-  //Dog parent class
   var $breed_name;
   var $color;
   var $size;
