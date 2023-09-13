@@ -1,34 +1,40 @@
 <?php
 
 class Dog {
-  private $breed_name;
+  public $breed_name;
   public $color;
-  private $size;
+  protected $size;
   protected $food;
-
-  public function getFoodAmount()  {
-    return $this->food.' cups of kibble.';
-  }
 
   public function getInfo() {
     return 'This is a '. $this->breed_name.'. It is a '. $this->size.' sized '. $this->color.' dog.';
   }
-//Get set method for the breed name
-  public function setBreedName($name) {
-    $this->breed_name = $name;
+//Get set method for the food and coat color
+
+  public function setFoodAmount($food) {
+    $this->food = $food;
   }
 
-  public function getBreedName($name) {
-    return 'The breed is '.$this->breed_name.'.';
+  public function getFoodAmount()  {
+    return $this->food.' cups of kibble.';
+  }
+  
+  public function setColor($color) {
+    $this->color = $color;
+  }
+
+  public function getColor() {
+    return 'The dog is now colored '.$this->color.'.';
   }
 }
 
 class LargeBreed extends Dog {
   //Large breed class
   protected $size = 'large';
-  public $food = 3;
-  public $dirt;
+  protected $food = 3;
+  private $dirt = 'dirty';
 
+  //These methods already act as a get/set
  public function Clean()  {
     if ($this->dirt == "dirty") {
       $this->dirt = 'clean';
@@ -53,7 +59,7 @@ class MediumBreed extends Dog {
   //Medium breed class
   protected $size = 'medium';
   protected $food = 2;
-  public $toy = 'stick';
+  private $toy = 'stick';
  
   public function giveToy()  {
     //Randomize the toy that is given
@@ -68,6 +74,13 @@ class MediumBreed extends Dog {
 
   public function collectToy() {
     return 'You found a '. $this->toy .' burried in your yard.';
+  }
+  //Get set for the toy
+  public function setToy($toy) {
+    $this->toy = $toy;
+  }
+  public function getToy() {
+    return 'You have a '. $this->toy .'.';
   }
 }
 
@@ -92,20 +105,19 @@ class SmallBreed extends Dog {
 $large_dog = new LargeBreed();
 $med_dog = new MediumBreed();
 $small_dog = new SmallBreed();
-
+//Changed to use get/set methods
 //Large dog
 $large_dog->breed_name = 'Great Dane';
-$large_dog->color = 'black';
-$large_dog->dirt = 'dirty';
+$large_dog->setColor('black');
 
 //Medium dog
 $med_dog->breed_name = 'Boxer';
-$med_dog->color = 'brown';
-$med_dog->toy = 'bone';
+$med_dog->setColor('brown');
+$med_dog->setToy('bone');
 
 //Small dog
 $small_dog->breed_name = 'Chihuahua';
-$small_dog->color = 'white';
+$small_dog->setColor('white');
 
 
 //Use methods in the classes
@@ -128,7 +140,5 @@ echo('<hr><h2>Feeding instructions: </h2>');
 echo('<p>The '.$large_dog->breed_name.' gets '.$large_dog->getFoodAmount().'</p>');
 echo('<p>The '.$med_dog->breed_name.' gets '.$med_dog->getFoodAmount().'</p>');
 echo('<p>The '.$small_dog->breed_name.' gets '.$small_dog->getFoodAmount().'</p>');
-
-
 
 //EOF
