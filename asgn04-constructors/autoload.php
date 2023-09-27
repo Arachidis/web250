@@ -3,7 +3,8 @@
 //Autoload function
 function my_autoload($class_name) {
   if (preg_match('/\A\w+\Z/', $class_name)) {
-    include 'classes/' . $class_name . '.class.php';
+    //Uses strtolower because the server being used is case sensitive
+    include 'classes/' . strtolower($class_name) . '.class.php';
   }
 }
 
