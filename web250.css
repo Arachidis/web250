@@ -1,0 +1,82 @@
+body 	{ 
+  background: white;
+  margin: auto; 
+}
+
+nav {
+  padding: 1em;
+}
+
+main {
+  margin: auto;
+  width: 75%;
+}
+
+h1 	{	
+  font-family: Arial, Helvetica, Sans-serif; font-size:32pt;
+	color:red; font-weight:bold; 
+  text-align: center;
+    }
+
+h2 	{	
+  font-family: Arial, Helvetica, Sans-serif; font-size:12pt;
+	color:black; font-weight:bold; 
+}
+
+p	{	
+  font-family: Arial, Helvetica, Sans-serif; font-size:10pt;
+	color:black; 
+}
+
+p.alert	{ 	
+  font-style: italic; color:red;
+}
+
+table	{ 	
+  font-family: Arial, Helvetica, Sans-serif; font-size:10pt;
+	color:black; 
+}
+
+td.center {	
+  text-align:center;
+}
+td.right {	
+  text-align:right;
+}
+
+select	{ 	
+  font-family: Arial, Helvetica, Sans-serif; font-size:10pt;
+	font-weight: bold; color:blue; background: lightBlue;
+}
+
+option	{ 	
+  font-family: Arial, Helvetica, Sans-serif; font-size:10pt;
+	color:black; background: silver;
+}
+
+a {
+  color: #fff;
+  font-size: 18pt;
+  text-decoration: none;
+  padding: 0 1em 0 0;
+}
+
+a:hover {
+  color: #000;
+}
+
+ul {
+ background-color: #888;
+ margin: auto;
+ text-align: center;
+}
+
+li {
+  display: inline-block;
+  list-style: none;
+  padding: 1em;
+}
+
+li:hover {
+  background-color: #fff;
+}
