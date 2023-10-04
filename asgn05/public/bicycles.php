@@ -27,6 +27,11 @@
       </tr>
 
 <?php 
+  
+  $parser = new ParseCSV(PRIVATE_PATH . '/used_bicycles.csv');
+  $bike_array = $parser->parse();
+
+  print_r($bike_array);
 
   $args = ['brand' => 'Trek', 'model' => 'Emonda',  'category' => 'Road', 'year' => '2017',  'gender' => 'unisex',  'color' => 'black', 'weight_kg' => 1.5, 'price' => '1000.00',];
   $bike = new Bicycle($args);
