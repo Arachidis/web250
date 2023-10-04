@@ -16,6 +16,7 @@ Class Bicycle {
 
   public const GENDERS = array('men','women','unisex');
 
+  // Used to store a list of the differnet conditions a bike may be in. A number is associated with the different conditions so that the wording can be changed at a later date. 
   protected const CONDITION_OPTIONS = array(1 => 'Beat up', 2 => 'Decent', 3 => 'Good', 4 => 'Great', 5 => 'Like New');
 
   public function __construct($args=[]) {
@@ -46,7 +47,8 @@ Class Bicycle {
     $this->weight_kg = $weight_lbs / 2.204;
   }
   
-  public function condition($condition_id) {
+  // Returns one of the conditions from the CONDITION_OPTIONS connstant depending on the condition_id. 
+  public function condition() {
     if ($this->condition_id > 0) {
       return Bicycle::CONDITION_OPTIONS[$this->condition_id];
     }
