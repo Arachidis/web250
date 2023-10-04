@@ -30,13 +30,10 @@
   
   $parser = new ParseCSV(PRIVATE_PATH . '/used_bicycles.csv');
   $bike_array = $parser->parse();
-
-  print_r($bike_array);
-
-  $args = ['brand' => 'Trek', 'model' => 'Emonda',  'category' => 'Road', 'year' => '2017',  'gender' => 'unisex',  'color' => 'black', 'weight_kg' => 1.5, 'price' => '1000.00',];
-  $bike = new Bicycle($args);
-?>
-      <?php for ($i = 0; $i < 10; $i++) {?>
+  ?>
+      <?php foreach($bike_array as $args) {
+        $bike = new Bicycle($args);
+        ?>
       <tr>
         <td><?= h($bike->brand);?></td>
         <td><?= h($bike->model);?></td>
