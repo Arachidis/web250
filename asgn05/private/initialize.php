@@ -25,7 +25,7 @@
   require_once('functions.php');
   
   // Load class definitions manually
-  // include 'classes/bicycle.class.php.class.php';
+  //require_once 'classes/bicycle.class.php.class.php';
 
   // Autoload class definitions
   function chain_gang_autoload($class_name) {
