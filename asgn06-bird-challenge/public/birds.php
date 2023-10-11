@@ -7,34 +7,36 @@
 <h2>Bird inventory</h2>
 <p>This is a short list -- start your birding!</p>
 
-/* 
-  Create a table. The header should reflect the headings in the wnc-birds.csv class.
-  Use a table border of 1 to make the display easier to read.
-*/
-   
+<table border="1">
+  <tr>
+    <th>Name</th>
+    <th>Habitat</th>
+    <th>Food</th>
+    <th>Nest Placement</th>
+    <th>Behavior</th>
+    <th>Conservation Status</th>
+    <th>Backyward Tips</th>
+  </tr>
 <?php
 
-  $parser = new ParseCSV(PRIVATE_PATH . '/wnc-birds.csv');
+  $parser = new ParseCSV(PRIVATE_PATH . '/csv-files/wnc-birds.csv');
   $bird_array = $parser->parse();
+  foreach($bird_array as $args) {
+    $bird = new Bird($args);
 
-/*
-  Create a foreach array using $bird_array as $args
-  Create a new instance of $bird
-*/
+?>
+    <tr>
+      <td><?= h($bird->common_name);?></td>
+      <td><?= h($bird->habitat);?></td>
+      <td><?= h($bird->food);?></td>
+      <td><?= h($bird->nest_placement);?></td>
+      <td><?= h($bird->behavior);?></td>
+      <td><?= h($bird->conservation());?></td>
+      <td><?= h($bird->backyard_tips);?></td>
+    </tr>
+    
+<?php } ?>
 
+  </table>
   
-  
-/*
-  Create a table row that lists out all of the bird
-  properties.
-
-*/
-  
-  ?>
-      
-      <?php } ?>
-
-    </table>
-
-
 <?php include(SHARED_PATH . '/public_footer.php'); ?>

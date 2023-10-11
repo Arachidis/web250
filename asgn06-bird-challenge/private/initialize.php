@@ -15,16 +15,13 @@
 
   require_once('functions.php');
   
-  /*
-    You can list the required classes manually or use the autoload class.
-    I have purposely left the autoload class because the code is difficult.
-  */
 
 
   // Autoload class definitions
   function my_autoload($class) {
     if(preg_match('/\A\w+\Z/', $class)) {
-      include('classes/' . $class . '.class.php');
+      // Uses strtolower to work with case senesitive server.
+      include('classes/' . strtolower($class) . '.class.php');
     }
   }
   spl_autoload_register('my_autoload');
