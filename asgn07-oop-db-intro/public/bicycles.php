@@ -4,7 +4,6 @@
 <?php include(SHARED_PATH . '/public_header.php'); ?>
 
 <div id="main">
-
   <div id="page">
     <div class="intro">
       <img class="inset" src="<?php echo url_for('/images/AdobeStock_55807979_thumb.jpeg') ?>" />
@@ -48,6 +47,16 @@ $bike_array = $parser->parse();
       <?php } ?>
 
     </table>
+
+    <?php 
+    
+    $sql = 'SELECT * FROM bicycles';
+    $result = $database->query($sql);
+    $row = $result->fetch_assoc();
+    $result->free();
+
+    echo 'Brand: '. $row['brand'];
+    ?>
   </div>
 
 </div>
