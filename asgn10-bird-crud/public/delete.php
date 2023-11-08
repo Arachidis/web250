@@ -29,12 +29,12 @@ if(is_post_request()) {
 ?>
 
 <?php $page_title = 'Delete Bird'; ?>
-  <a href="<?php echo url_for('birds.php'); ?>">&laquo; Back to List</a>
+  <a href="<?= url_for('birds.php') ?>">&laquo; Back to List</a>
   <h1>Delete Bird</h1>
   <p>Are you sure you want to delete this bird?</p>
   <p ><?= ($bird->common_name) . " with an ID of " . $id . "?"?></p>
 
-  <form action="<?php echo url_for('/delete.php?id=' . h(u($id))); ?>" method="post">
+  <form action="<?= url_for('/delete.php?id=' . h(u($id))) ?>" method="post">
       <input type="submit" name="commit" value="Delete Bird" />
   </form>
 

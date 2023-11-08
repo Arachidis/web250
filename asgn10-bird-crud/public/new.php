@@ -7,6 +7,7 @@ require_once('../private/initialize.php');
   so your file mimics the same functionality.
   Be sure to include the display_errors() function.
 */
+
 if(is_post_request()) {
 
   // Create record using post parameters
