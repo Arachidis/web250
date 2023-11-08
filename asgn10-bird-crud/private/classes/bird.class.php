@@ -39,6 +39,11 @@ class Bird extends DatabaseObject {
     }
   }
 
+  // Returns the CONSERVATION_OPTIONS array.
+  public static function getConservationOptions() {
+      return self::CONSERVATION_OPTIONS;
+  }
+
 
   protected function validate() {
     $this->errors = [];
