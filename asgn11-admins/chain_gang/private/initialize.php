@@ -42,7 +42,7 @@
   // Autoload class definitions
   function my_autoload($class) {
     if(preg_match('/\A\w+\Z/', $class)) {
-      include('classes/' . $class . '.class.php');
+      include('classes/' . strtolower($class) . '.class.php');
     }
   }
   spl_autoload_register('my_autoload');
@@ -50,4 +50,5 @@
   $database = db_connect();
   DatabaseObject::set_database($database);
 
+  $session = new Session;
 ?>
