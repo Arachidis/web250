@@ -1,14 +1,15 @@
 <?php
-  if(!isset($page_title)) { $page_title = 'Member Area'; }
+  if(!isset($page_title)) { $page_title = 'Create Account'; }
 ?>
 
 <!doctype html>
 
 <html lang="en">
 <head>
-    <title>WNC Birds <?php if(isset($page_title)) { echo ' - ' . h($page_title); } ?></title>
-    <meta charset="utf-8">
-  </head>
+  <script src="https://www.google.com/recaptcha/enterprise.js?render=6Ldt5hkpAAAAAH5l4MaWbjTShsO1qqf91FAOn7Zh" async defer></script>
+  <title>WNC Birds <?php if(isset($page_title)) { echo ' - ' . h($page_title); } ?></title>
+  <meta charset="utf-8">
+</head>
 
   <body>
     <header>
@@ -17,12 +18,8 @@
 
     <navigation>
       <ul>
-        <?php if($session->is_logged_in()) { ?>
-        <li>User: <?= $session->username ?></li>
-        <li><a href="<?php echo url_for('/members/index.php'); ?>">Menu</a></li>
-        <li><a href="<?php echo url_for('/logout.php'); ?>">Logout</a></li>
-        <?php } ?>
+        <li><a href="<?php echo url_for('/index.php'); ?>">Home</a></li>
+        <li><a href="<?php echo url_for('/login.php'); ?>">Login</a></li>
       </ul>
     </navigation>
 
-    <?php echo display_session_message(); ?>
