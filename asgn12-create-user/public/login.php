@@ -39,8 +39,6 @@ if(is_post_request()) {
 
 <?php $page_title = 'Log in'; ?>
 <?php include(SHARED_PATH . '/member_header.php'); ?>
-
-<div id="content">
   <h1>Log in</h1>
 
   <?php echo display_errors($errors); ?>
@@ -52,7 +50,7 @@ if(is_post_request()) {
     <input type="password" name="password" value="" /><br />
     <input type="submit" name="submit" value="Submit"  />
   </form>
-
-</div>
+  <h3>Not a member? Create an account now!</h3>
+  <a href="<?= url_for('create_user.php') ?>">Create Account</a>
 
 <?php include(SHARED_PATH . '/member_footer.php'); ?>
