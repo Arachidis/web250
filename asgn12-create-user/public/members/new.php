@@ -34,7 +34,7 @@ if(is_post_request()) {
 <?php include(SHARED_PATH . '/member_header.php'); ?>
   <a class="back-link" href="<?= url_for('members/index.php') ?>">&laquo; Back to List</a>
 
-    <h1>Create member</h1>
+    <h1>Create a New Member</h1>
 
   <?= display_errors($member->errors)?>
   <form action="<?= url_for('members/new.php') ?>" method="post">
