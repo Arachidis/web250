@@ -1,6 +1,6 @@
 <?php 
 
-require_once('../private/initialize.php');
+require_once('../../private/initialize.php');
 
 /* 
   Use the bicycles/staff/edit.php file as a guide 
@@ -25,7 +25,7 @@ if(is_post_request()) {
   $result = $bird->save($args);
 
   if($result === true) {
-    $_SESSION['message'] = 'The bird entry was updated successfully.';
+    $session->message('The bird entry was updated successfully.');
     redirect_to(url_for('/show.php?id=' . $id));
   } else {
     // show errors

@@ -1,5 +1,14 @@
 <?php
 
+function require_login() {
+  global $session;
+  if (!$session->is_logged_in()) {
+    redirect_to((url_for('/login.php')));
+  } else {
+    // Do nothing, let the rest of the page proceed.
+  }
+}
+
 function display_errors($errors=array()) {
   $output = '';
   if(!empty($errors)) {
@@ -26,7 +35,7 @@ function get_and_clear_session_message() {
 function display_session_message() {
   $msg = get_and_clear_session_message();
   if(isset($msg) && $msg != '') {
-    return '<div id="message">' . h($msg) . '</div>';
+    return '<h2>' . h($msg) . '</h2>';
   }
 }
 
