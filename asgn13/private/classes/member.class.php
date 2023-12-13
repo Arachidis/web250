@@ -16,6 +16,12 @@ class Member extends DatabaseObject {
   public $confirm_password;
   protected $password_required = true;
 
+  // User level constant for controlling access. 
+  public const USER_LEVEL = [
+    'A' => ['members', 'birds'],
+    'M' => ['birds'],
+  ];
+
   public function __construct($args=[]) {
     $this->first_name = $args['first_name'] ?? '';
     $this->last_name = $args['last_name'] ?? '';

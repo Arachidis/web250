@@ -1,6 +1,9 @@
 <?php
 
 require_once('../../private/initialize.php');
+if (require_login_access_level(getcwd()) == false) {
+  redirect_to((url_for('/login.php')));
+}
 
 /* 
   Use the bicycles/staff/new.php file as a guide 

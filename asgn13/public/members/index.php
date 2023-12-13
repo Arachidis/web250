@@ -1,6 +1,8 @@
 <?php 
   require_once('../../private/initialize.php');
-  require_login(); ?>
+  if (require_login_access_level(getcwd()) == false) {
+    redirect_to((url_for('/login.php')));
+  } ?>
 <?php
   $page_title = 'Member List';
   include(SHARED_PATH . '/member_header.php');
@@ -9,8 +11,6 @@
 ?>
 
 <h2>Members</h2>
-
-
 
 <a href="<?= url_for("members/new.php")?>">Create New Member</a>
 

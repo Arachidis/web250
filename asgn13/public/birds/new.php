@@ -1,7 +1,9 @@
 <?php
 
 require_once('../../private/initialize.php');
-
+if (require_login_access_level(getcwd()) == false) {
+  redirect_to((url_for('/login.php')));
+}
 /* 
   Use the bicycles/staff/new.php file as a guide 
   so your file mimics the same functionality.
@@ -18,7 +20,7 @@ if(is_post_request()) {
   if($result === true) {
     $new_id = $bird->id;
     $session->message('The bicycle was created successfully.');
-    redirect_to(url_for('/show.php?id=' . $new_id));
+    redirect_to(url_for('birds/show.php?id=' . $new_id));
   } else {
     // show errors
   }
@@ -31,12 +33,12 @@ if(is_post_request()) {
 ?>
 
 <?php $page_title = 'Create bird'; ?>
-  <a class="back-link" href="<?= url_for('/birds.php') ?>">&laquo; Back to List</a>
+  <a class="back-link" href="<?= url_for('birds/birds.php') ?>">&laquo; Back to List</a>
 
     <h1>Create bird</h1>
 
   <?= display_errors($bird->errors)?>
-  <form action="<?= url_for('/new.php') ?>" method="post">
+  <form action="<?= url_for('birds/new.php') ?>" method="post">
 
     <?php include('form_fields.php'); ?>
     <input type="submit" value="Create Bird" />

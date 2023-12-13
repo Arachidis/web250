@@ -1,5 +1,7 @@
 <?php require_once('../../private/initialize.php'); ?>
-<?php require_login(); ?>
+<?php if (require_login_access_level(getcwd()) == false) {
+  redirect_to((url_for('/login.php')));
+}?>
 <?php
 
 $id = $_GET['id'] ?? '1'; // PHP > 7.0

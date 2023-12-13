@@ -1,7 +1,9 @@
 <?php
 
 require_once('../../private/initialize.php');
-require_login();
+if (require_login_access_level(getcwd()) == false) {
+  redirect_to((url_for('/login.php')));
+}
 
 if(!isset($_GET['id'])) {
   redirect_to(url_for('/member/index.php'));

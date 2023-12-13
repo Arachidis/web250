@@ -3,6 +3,7 @@
 class Session {
 
   private $member_id;
+  private $member_level;
   public $username;
   private $last_login;
 
@@ -18,7 +19,9 @@ class Session {
       // Prevents session fixation attacks.
       session_regenerate_id();
       $_SESSION['member_id'] = $member->id;
+      $_SESSION['member_level'] = $member->user_level;
       $this->member_id = $member->id;
+      $this->member_level = $member->user_level;
 
       $this->username =$_SESSION['username'] = $member->username;
       $this->last_login = $_SESSION['last_login'] = time();
@@ -29,14 +32,30 @@ class Session {
   public function is_logged_in() {
     //return isset($this->member_id);
     return isset($this->member_id) && $this->last_login_is_recent();
+  }
 
+  public function logged_in_level($dir) {
+    //
+    if ($this->is_logged_in()) {
+      $this->member_level = $_SESSION['member_level'];
+      if ($this->member_level != "") {
+        foreach (Member::USER_LEVEL[$this->member_level] as $lvl) {
+          if (strpos($dir, $lvl) !== false) {
+            return true;
+          }
+      }
+      }
+      return false;
+    }
   }
 
   public function logout() {
     unset($_SESSION['member_id']);
     unset($_SESSION['username']);
+    unset($_SESSION['member_level']);
     unset($_SESSION['last_login']);
     unset($this->member_id);
+    unset($this->member_level);
     unset($this->username);
     unset($this->last_login);
     return true;

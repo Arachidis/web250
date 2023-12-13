@@ -1,13 +1,15 @@
 <?php require_once('../../private/initialize.php'); ?>
 
 <?php
-
+if (require_login_access_level(getcwd()) == false) {
+  redirect_to((url_for('/login.php')));
+}
 $id = $_GET['id'] ?? false; // PHP > 7.0
 
 $bird = Bird::find_by_id($id);
 
 if(!$id) {
-  redirect_to('birds.php');
+  redirect_to('birds/birds.php');
 }
 
 /*
@@ -20,7 +22,7 @@ if(!$id) {
 <?php $page_title = 'Detail: ' . $bird->common_name; ?>
 <?php include(SHARED_PATH . '/public_header.php'); ?>
 
-  <a href="<?= url_for("birds.php");?>">Back to Inventory</a>
+  <a href="<?= url_for("birds/birds.php");?>">Back to Inventory</a>
   <dl>
     <dt>ID</dt>
     <dd><?= h($bird->id) ?></dd>

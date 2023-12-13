@@ -9,6 +9,16 @@ function require_login() {
   }
 }
 
+function require_login_access_level($dir) {
+  global $session;
+  if (!$session->logged_in_level($dir)) {
+    return false;
+  } else {
+    return true;
+    // Do nothing, let the rest of the page proceed.
+  }
+}
+
 function display_errors($errors=array()) {
   $output = '';
   if(!empty($errors)) {

@@ -9,6 +9,9 @@
   if(!$id) {
     redirect_to('birds.php');
   }
+  if (require_login_access_level(getcwd()) == false) {
+    redirect_to((url_for('/login.php')));
+  }
 
   // Find bird using ID
 
