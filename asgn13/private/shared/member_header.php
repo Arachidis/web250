@@ -18,10 +18,9 @@
     <navigation>
       <ul>
         <?php if($session->is_logged_in()) { ?>
-        <li>User: <?= $session->username ?></li>
         
         <li><a href="<?php echo url_for('/index.php'); ?>">Menu</a></li>
-        <li><a href="<?php echo url_for('/logout.php'); ?>">Logout</a></li>
+        <li><a href="<?php echo url_for('/logout.php'); ?>">Logout, <?= $session->username ?></a></li>
         <?php } ?>
       </ul>
     </navigation>

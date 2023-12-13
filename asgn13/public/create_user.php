@@ -23,6 +23,7 @@ if(is_post_request()) {
 
     // Create record using post parameters
     $args = $_POST['member'];
+    $args += ['user_level' => 'M'];
     $member = new Member($args);
     $result = $member->save();
     $password = $args['password'];
@@ -34,7 +35,7 @@ if(is_post_request()) {
         if($member != false && $member->verify_password($password)) {
           // Mark member as logged in
           $session->login($member);
-          redirect_to(url_for('/members/index.php'));
+          redirect_to(url_for('/birds/birds.php'));
         } 
     } else {
       // show errors
@@ -58,7 +59,7 @@ if(is_post_request()) {
   <?= display_errors($member->errors)?>
   <form action="<?= url_for('/create_user.php') ?>" method="post">
 
-    <?php include('members/form_fields.php'); ?>
+    <?php include('form_fields.php'); ?>
     <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
     <input type="submit" value="Create member">
 
